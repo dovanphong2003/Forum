@@ -158,7 +158,7 @@ export default {
 
     const fetchStudents = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/students", {
+        const response = await axios.get("https://my-backend-v7fg.onrender.com/api/students", {
           headers: { Authorization: `Bearer ${authStore.token}` },
         });
         students.value = response.data;
@@ -178,7 +178,7 @@ export default {
         if (editingStudent.value) {
           // Sửa sinh viên
           const response = await axios.put(
-            `http://localhost:5000/api/students/${editingStudent.value._id}`,
+            `https://my-backend-v7fg.onrender.com/api/students/${editingStudent.value._id}`,
             payload,
             {
               headers: { Authorization: `Bearer ${authStore.token}` },
@@ -190,7 +190,7 @@ export default {
           alert("sửa sinh viên thành công !")
         } else {
           // Thêm sinh viên
-          const response = await axios.post("http://localhost:5000/api/students", payload, {
+          const response = await axios.post("https://my-backend-v7fg.onrender.com/api/students", payload, {
             headers: { Authorization: `Bearer ${authStore.token}` },
           });
           students.value.push(response.data.student);
@@ -228,7 +228,7 @@ export default {
 
     const deleteStudent = async () => {
       try {
-        await axios.delete(`http://localhost:5000/api/students/${studentIdToDelete.value}`, {
+        await axios.delete(`https://my-backend-v7fg.onrender.com/api/students/${studentIdToDelete.value}`, {
           headers: { Authorization: `Bearer ${authStore.token}` },
         });
         students.value = students.value.filter((s) => s._id !== studentIdToDelete.value);

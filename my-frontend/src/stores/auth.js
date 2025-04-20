@@ -22,7 +22,7 @@ export const useAuthStore = defineStore("auth", {
   actions: {
     async register(username, name, email, password, phoneNumber, dateOfBirth) {
       try {
-        const response = await axios.post("http://localhost:5000/api/auth/register", {
+        const response = await axios.post("https://my-backend-v7fg.onrender.com/api/auth/register", {
           username,
           name,
           email,
@@ -41,7 +41,7 @@ export const useAuthStore = defineStore("auth", {
 
     async login(email, password) {
       try {
-        const response = await axios.post("http://localhost:5000/api/auth/login", {
+        const response = await axios.post("https://my-backend-v7fg.onrender.com/api/auth/login", {
           email,
           password,
         });
@@ -59,7 +59,7 @@ export const useAuthStore = defineStore("auth", {
     async fetchUser() {
       if (this.token) {
         try {
-          const response = await axios.get("http://localhost:5000/api/auth/protected", {
+          const response = await axios.get("https://my-backend-v7fg.onrender.com/api/auth/protected", {
             headers: { Authorization: `Bearer ${this.token}` },
           });
           this.user = response.data.user;

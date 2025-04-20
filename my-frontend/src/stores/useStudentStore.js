@@ -15,7 +15,7 @@ export const useStudentStore = defineStore("student", {
       try {
         if (!this.token) throw new Error("Chưa đăng nhập hoặc token không tồn tại");
         const decodedToken = jwtDecode(this.token);
-        const response = await axios.get(`http://localhost:5000/api/students/${decodedToken.id}`, {
+        const response = await axios.get(`https://my-backend-v7fg.onrender.com/api/students/${decodedToken.id}`, {
           headers: { Authorization: `Bearer ${this.token}` },
         });
         this.student = response.data;
@@ -30,7 +30,7 @@ export const useStudentStore = defineStore("student", {
       try {
         if (!this.token) throw new Error("Chưa đăng nhập hoặc token không tồn tại");
         const decodedToken = jwtDecode(this.token);
-        const response = await axios.get(`http://localhost:5000/api/posts/student/${decodedToken.id}`, {
+        const response = await axios.get(`https://my-backend-v7fg.onrender.com/api/posts/student/${decodedToken.id}`, {
           headers: { Authorization: `Bearer ${this.token}` },
         });
         this.posts = response.data;
@@ -45,7 +45,7 @@ export const useStudentStore = defineStore("student", {
       try {
         if (!this.token) throw new Error("Chưa đăng nhập hoặc token không tồn tại");
         const decodedToken = jwtDecode(this.token);
-        const response = await axios.get(`http://localhost:5000/api/forums/student/${decodedToken.id}`, {
+        const response = await axios.get(`https://my-backend-v7fg.onrender.com/api/forums/student/${decodedToken.id}`, {
           headers: { Authorization: `Bearer ${this.token}` },
         });
         this.forums = response.data;
@@ -62,7 +62,7 @@ export const useStudentStore = defineStore("student", {
         const decodedToken = jwtDecode(this.token);
         console.log("Gửi lên backend: ", studentData);
         const response = await axios.put(
-          `http://localhost:5000/api/students/${decodedToken.id}`,
+          `https://my-backend-v7fg.onrender.com/api/students/${decodedToken.id}`,
           studentData,
           {
             headers: { Authorization: `Bearer ${this.token}` },

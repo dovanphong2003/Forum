@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors"); // ✅ Import cors
 const connectDB = require("./config/db");
@@ -5,7 +6,15 @@ const connectDB = require("./config/db");
 const app = express();
 
 // ✅ Thêm CORS để cho phép frontend truy cập API
-app.use(cors({ origin: "http://localhost:4000", credentials: true }));
+app.use(cors({
+  origin: [
+    "http://localhost:4000",
+    "http://localhost:5000",
+    "https://splendid-muffin-516e03.netlify.app"
+  ],
+  credentials: true
+}));
+
 
 app.use(express.json());
 

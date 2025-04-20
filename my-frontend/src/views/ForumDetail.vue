@@ -151,7 +151,7 @@ export default {
           createdBy: authStore.user._id,
           post: selectedPostId.value,
         };
-        const response = await axios.post("http://localhost:5000/api/comments", commentData, {
+        const response = await axios.post("https://my-backend-v7fg.onrender.com/api/comments", commentData, {
           headers: { Authorization: `Bearer ${authStore.token}` },
         });
         // Cập nhật danh sách bình luận trong bài viết

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-const MONGO_URI = "mongodb://localhost:27017/student_forum"; // Thay đổi theo database của bạn
+const MONGO_URI = process.env.MONGO_URI;
 
 const connectDB = async () => {
   try {

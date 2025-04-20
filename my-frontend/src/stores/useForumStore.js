@@ -12,7 +12,7 @@ export const useForumStore = defineStore("forum", {
   actions: {
     async fetchForums() {
       try {
-        const response = await axios.get("http://localhost:5000/api/forums");
+        const response = await axios.get("https://my-backend-v7fg.onrender.com/api/forums");
         this.forums = response.data;
       } catch (error) {
         console.error("Lỗi khi lấy danh sách diễn đàn:", error);
@@ -21,7 +21,7 @@ export const useForumStore = defineStore("forum", {
 
     async fetchForumById(id) {
       try {
-        const response = await axios.get(`http://localhost:5000/api/forums/${id}`);
+        const response = await axios.get(`https://my-backend-v7fg.onrender.com/api/forums/${id}`);
         this.currentForum = response.data;
         this.posts = response.data.posts;
         console.log("response of forum by id: ",response)
@@ -41,7 +41,7 @@ export const useForumStore = defineStore("forum", {
       const createdBy = decoded.id;
       
       try {
-        const response = await axios.post("http://localhost:5000/api/forums", 
+        const response = await axios.post("https://my-backend-v7fg.onrender.com/api/forums", 
           { title, description, createdBy },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -53,7 +53,7 @@ export const useForumStore = defineStore("forum", {
 
     async fetchPostById(id) {
       try {
-        const response = await axios.get(`http://localhost:5000/api/posts/${id}`);
+        const response = await axios.get(`https://my-backend-v7fg.onrender.com/api/posts/${id}`);
         console.log("response post: ",response)
         this.currentPost = response.data;
       } catch (error) {
@@ -72,7 +72,7 @@ export const useForumStore = defineStore("forum", {
       const createdBy = decoded.id;
       
       try {
-        const response = await axios.post("http://localhost:5000/api/posts", 
+        const response = await axios.post("https://my-backend-v7fg.onrender.com/api/posts", 
           { content, createdBy, forum: forumId },
           { headers: { Authorization: `Bearer ${token}` } }
         );

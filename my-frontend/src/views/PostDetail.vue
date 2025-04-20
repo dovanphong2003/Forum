@@ -209,7 +209,7 @@ export default {
         if (parentId) formData.append("parent", parentId);
         if (selectedImage.value) formData.append("image", selectedImage.value);
 
-        const response = await axios.post("http://localhost:5000/api/comments", formData, {
+        const response = await axios.post("https://my-backend-v7fg.onrender.com/api/comments", formData, {
           headers: {
             Authorization: `Bearer ${authStore.token}`,
             "Content-Type": "multipart/form-data",
